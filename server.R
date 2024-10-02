@@ -1,10 +1,17 @@
 #define server function
+library(shiny)
+library(bslib)
+library(tidyverse)
+library(tibble)
+library(plotly)
 
-server <- function(input,output){
+df <- readRDS("data.rds")
+
+shinyServer(function(input,output){
   
   output$ts_plot <- renderPlotly({
     
-    plot <- ggplot(combined_data_vif_10) +
+    plot <- ggplot(df) +
       geom_point(aes(x = Time, y = !!input$yvar))
     
     ggplotly(plot) %>% layout(paper_bgcolor='rgb(254, 247, 234)') %>%
@@ -12,5 +19,4 @@ server <- function(input,output){
     
     
   })
-  
-}
+})

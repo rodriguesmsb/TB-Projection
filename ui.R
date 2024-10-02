@@ -11,44 +11,38 @@ theme <- bs_theme(
   navbar_bg = "#25443B"
 )
 
-
+df <- readRDS("data.rds")
 
 #Deine UI for app
-ui <- page_fluid(
+shinyUI(
+  page_fluid(
+    #add title page
   
-  #add title page
-  
-  #create navset fill
-  accordion(  
+    #create navset fill
+    accordion(  
     
     #add panel for descripton
-    accordion_panel( 
-      title = "About", 
-      icon = bsicons::bs_icon("book-half"),
+        accordion_panel( 
+          title = "About", 
+          icon = bsicons::bs_icon("book-half"),
       
-      "Some nice text about app"
-      
-      
-    ),
+          "Some nice text about app"),
+        #add panel for descriptive analys
     
-    #add panel for descriptive analys
-    
-    accordion_panel( 
-      title = "About", 
-      icon = bsicons::bs_icon("graph-up"),
-      #create a sidebar
-      page_sidebar(
-        sidebar = sidebar(
-          #create a box to select input
-          varSelectInput(
-            inputId = "yvar",
-            label = "Select one variable",
-            data = combined_data_vif_10 %>% select(c(HIV_Positive,DOT,BCG_Rates))
-            
+        accordion_panel( 
+          title = "About", 
+          icon = bsicons::bs_icon("graph-up"),
+          
+          #create a sidebar
+          page_sidebar(
+            sidebar = sidebar(
+              #create a box to select input
+              varSelectInput(
+                inputId = "yvar",
+                label = "Select one variable",
+                data = df %>% select(c(HIV_Positive,DOT,BCG_Rates)))),
+            card(plotlyOutput(outputId = "ts_plot")))
           )
-        ),
-        card(plotlyOutput(outputId = "ts_plot"))
-      )
+        )
     )
   )
-)
