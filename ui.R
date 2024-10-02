@@ -16,6 +16,7 @@ df <- readRDS("data.rds")
 #Deine UI for app
 shinyUI(
   page_fluid(
+    theme = theme,
     #add title page
   
     #create navset fill
