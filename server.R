@@ -49,11 +49,23 @@ shinyServer(function(input,output){
     projections_plot <- ggplot(plot_dat) +
       geom_point(aes(x = Year, y = Mean_Forecast)) +
       geom_ribbon(aes(x = Year, ymin = Lower_CI, ymax = Upper_CI), alpha = 0.7) +
-      labs(x = NULL, y = "Projecao de Tuberculose no Brasil")
+      geom_hline(aes(yintercept = 27.3), color = "grey", lty = 2) +
+      annotate(geom = "text", x = 2018, y = 28, label = "Meta 2020", color = "grey") +
+      geom_hline(aes(yintercept = 17), color = "green", lty = 2) +
+      annotate(geom = "text", x = 2018, y = 18, label = "Meta 2025", color = "green") +
+      geom_hline(aes(yintercept = 6), color = "red", lty = 2) +
+      annotate(geom = "text", x = 2018, y = 7, label = "Meta 2030", color = "red") +
+      ylim(0,50) +
+      scale_x_continuous(breaks = seq(2018,2030,2)) +
+      labs(x = NULL, y = "Projecao de Tuberculose no Brasil") +
+      theme_bw() +
+      theme(axis.title.y = element_text(size = 22))
     
-    ggplotly(projections_plot) %>% layout(paper_bgcolor='rgb(254, 247, 234)') %>%
-      layout(plot_bgcolor='rgb(254, 247, 234)')
+    ggplotly(projections_plot) 
     
   })
   
 })
+
+
+
