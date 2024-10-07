@@ -11,8 +11,19 @@ library(magrittr)
 theme <- bs_theme(
   bootswatch = "darkly",
   base_font = font_google("Inter"),
-  navbar_bg = "blue"
 )
+
+
+#fix colors in input using css
+css <- "
+.selectize-dropdown-content .option {
+    color: white;
+}
+    
+.selectize-input .item {
+   color: white !important;
+}
+"
 
 
 #customize h1 title
@@ -28,6 +39,9 @@ shinyUI(
   
   page_fluid(
     theme = theme,
+    tags$head(
+      tags$style(HTML(css))
+    ),
     #add title page
   titlePanel(
     h1("Avaliação do Impacto de Intervenções de Saúde Pública para Reduzir 
@@ -106,7 +120,8 @@ shinyUI(
               selectizeInput(
                 inputId = "indicators",
                 label = "Selecione um indicador",
-                choices =  c("Baseline","Pop_vul","All","Combined")),
+                choices =  c("Baseline","Pop_vul","All","Combined"),
+                selected = "Baseline"),
             
             #reduction selector
             selectizeInput(
@@ -123,6 +138,3 @@ shinyUI(
         )
   )
   )
-
-
-
