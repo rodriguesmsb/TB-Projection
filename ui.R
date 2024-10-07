@@ -16,7 +16,8 @@ theme <- bs_theme(
 
 
 #customize h1 title
-style_h1 <- "color:#61892F; font-weight: bold;"
+style_h1 <- "color:#86C232; font-weight: bold; font-size:52px"
+style_p <- "color:#ffffff; font-weight: normal; font-size:20px"
 
 load("objects.RData")
 
@@ -29,8 +30,8 @@ shinyUI(
     theme = theme,
     #add title page
   titlePanel(
-    h1("Impact of Strategic Public Health Interventions to Reduce Tuberculosis 
-              Incidence in Brazil: A Bayesian Structural Time-Series Scenario Analysis",
+    h1("Avaliação do Impacto de Intervenções de Saúde Pública para Reduzir 
+        a Incidência da Tuberculose no Brasil",
        align = "center", style = style_h1)),
     
   
@@ -42,7 +43,32 @@ shinyUI(
           title = "Sobre o Projeto", 
           icon = bsicons::bs_icon("book-half"),
       
-          "Apresentar um breve resumo sobre o projeto"),
+          p("Bem-vindo à nossa Plataforma de Previsão de Incidência de TB, uma 
+          ferramenta avançada projetada para auxiliar profissionais e gestores 
+          de saúde pública a avaliarem como melhorias nos preditores-chave de 
+          Tuberculose podem reduzir as taxas de incidência nacional nos próximos 
+          anos. Baseada em um modelo robusto, desenvolvido a partir de dados 
+          nacionais de vigilância epidemiológica, essa plataforma oferece 
+          projeções dinâmicas da incidência de TB sob diversos cenários 
+          estratégicos. Através de uma interface intuitiva de visualização de 
+          dados, os usuários podem simular como melhorias anuais em indicadores 
+          essenciais de controle da Tuberculose e reduções no número casos da 
+          doença em populações vulnerabilizadas, podem ser eficazes em diminuir 
+          as projeções da incidência de Tuberculose até 2030. Os cenários variam 
+          desde intervenções mais conservadoras (melhorias anuais de 5% nos indicadores) 
+          até estratégias ambiciosas (melhorias anuais de até 30%), permitindo uma 
+          análise aprofundada e diferenciada de como intervenções direcionadas podem 
+          influenciar a trajetória da doença. Esta plataforma oferece uma 
+          base sólida para o planejamento estratégico e a formulação de 
+          políticas públicas eficazes, com o objetivo de reduzir a TB e avançar 
+          em direção às metas globais de eliminação da doença. Além disso, 
+          funciona como uma poderosa ferramenta de divulgação científica e 
+          visualização de dados, ampliando o acesso e o impacto dos resultados 
+          apresentados em nosso estudo: Avaliação do Impacto de Intervenções de 
+          Saúde Pública para Reduzir a Incidência da Tuberculose no Brasil:
+          Uma Analise Bayesiana de Cenário em Séries-Temporais, atualmente 
+          sob revisão na prestigiada revista The Lancet: Regional Health Americas.",
+            align = "justify", style = style_p)),
         #add panel for descriptive analys
     
         accordion_panel( 
