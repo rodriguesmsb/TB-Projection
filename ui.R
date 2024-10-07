@@ -84,7 +84,7 @@ shinyUI(
                 inputId = "predictors",
                 label = "Select one variable",
                 data = df %>% select(c(HIV_Positive,DOT,BCG_Rates))),
-              bg = "#61892F",
+              bg = "#F5F5F5",
               border_raidus = TRUE),
             
             #create a layout with two columns for booth graphs
@@ -114,7 +114,7 @@ shinyUI(
               label = "Reduzido em:",
               choices =  c(0,5,10,20,30
               )),
-            bg = "#61892F",
+            bg = "#F5F5F5",
             border_raidus = TRUE),
             
             #create a card for plot
@@ -123,5 +123,6 @@ shinyUI(
         )
   )
   )
+
 
 
