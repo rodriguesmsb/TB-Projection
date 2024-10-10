@@ -130,7 +130,11 @@ shinyUI(
             selectizeInput(
               inputId = "reduction",
               label = "Reduzido em:",
-              choices =  c(0,5,10,20,30
+              choices =  c( "Sem mudanca" = 0,
+                            "Reducao de 5%" = 5,
+                            "Reducao de 10%" = 10,
+                            "Reducao de 20%" = 20,
+                            "Reducao de 30%" = 30
               )),
             bg = "#F5F5F5",
             border_raidus = TRUE),
