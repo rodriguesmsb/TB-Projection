@@ -120,7 +120,10 @@ shinyUI(
               selectizeInput(
                 inputId = "indicators",
                 label = "Selecione um indicador",
-                choices =  c("Baseline","Pop_vul","All","Combined"),
+                choices =  c("Baseline" = "Baseline",
+                             "Populacoes Vulneraveis" ="Pop_vul",
+                             "Todas" =  "All",
+                             "Combinada"= "Combined"),
                 selected = "Baseline"),
             
             #reduction selector
